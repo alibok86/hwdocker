@@ -30,9 +30,13 @@ Hey, Netology
 - Соберите и отправьте созданный образ в свой dockerhub-репозитории c tag 1.0.0 (ТОЛЬКО ЕСЛИ ЕСТЬ ДОСТУП). 
 - Предоставьте ответ в виде ссылки на https://hub.docker.com/<username_repo>/custom-nginx/general .
 
+
+
+
+
+РЕШЕНИЕ1
 Создаем докерфайл
-
-
+![1](https://github.com/alibok86/hwdocker/blob/main/img/1.jpg)
 Запускаем через docker build -t custom-nginx:1.0.0
 Логинимся docker login
 
@@ -40,25 +44,6 @@ docker tag custom-nginx:1.0.0 /custom-nginx:1.0.0
 docker push alibok/custom-nginx:1.0.0
 
 https://hub.docker.com/r/alibok/custom-nginx/tags
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -73,6 +58,14 @@ https://hub.docker.com/r/alibok/custom-nginx/tags
 4. Убедитесь с помощью curl или веб браузера, что индекс-страница доступна.
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
+
+## Решение 2
+
+![1](https://github.com/alibok86/hwdocker/blob/main/img/2.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/3.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/4.jpg)
+
+
 
 
 ## Задача 3
@@ -90,6 +83,18 @@ https://hub.docker.com/r/alibok/custom-nginx/tags
 12. Удалите запущенный контейнер "custom-nginx-t2", не останавливая его.(воспользуйтесь --help или google)
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
+
+
+## Решение 3
+![1](https://github.com/alibok86/hwdocker/blob/main/img/5.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/6.jpg)
+
+
+Контейнер остановился, потому что Ctrl+C завершил его основной процесс (nginx).
+https://github.com/alibok86/hwdocker/blob/main/img/7.jpg
+https://github.com/alibok86/hwdocker/blob/main/img/8.jpg
+https://github.com/alibok86/hwdocker/blob/main/img/9.jpg
+https://github.com/alibok86/hwdocker/blob/main/img/10.jpg
 
 ## Задача 4
 
