@@ -9,7 +9,7 @@
 3. Своё решение к задачам оформите в вашем GitHub репозитории в формате markdown!!!
 4. В личном кабинете отправьте на проверку ссылку на .md-файл в вашем репозитории.
 
-## Задача 1
+##Задача 1
 
 Сценарий выполнения задачи:
 - Установите docker и docker compose plugin на свою linux рабочую станцию или ВМ.
@@ -34,7 +34,7 @@ Hey, Netology
 
 
 
-РЕШЕНИЕ1
+##РЕШЕНИЕ1
 Создаем докерфайл
 ![1](https://github.com/alibok86/hwdocker/blob/main/img/1.jpg)
 Запускаем через docker build -t custom-nginx:1.0.0
@@ -48,7 +48,7 @@ https://hub.docker.com/r/alibok/custom-nginx/tags
 
 
 
-## Задача 2
+##Задача 2
 1. Запустите ваш образ custom-nginx:1.0.0 командой docker run в соответвии с требованиями:
 - имя контейнера "ФИО-custom-nginx-t2"
 - контейнер работает в фоне
@@ -59,7 +59,7 @@ https://hub.docker.com/r/alibok/custom-nginx/tags
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
-## Решение 2
+##Решение 2
 
 ![1](https://github.com/alibok86/hwdocker/blob/main/img/2.jpg)
 ![1](https://github.com/alibok86/hwdocker/blob/main/img/3.jpg)
@@ -68,7 +68,7 @@ https://hub.docker.com/r/alibok/custom-nginx/tags
 
 
 
-## Задача 3
+##Задача 3
 1. Воспользуйтесь docker help или google, чтобы узнать как подключиться к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2".
 2. Подключитесь к контейнеру и нажмите комбинацию Ctrl-C.
 3. Выполните ```docker ps -a``` и объясните своими словами почему контейнер остановился.
@@ -85,16 +85,18 @@ https://hub.docker.com/r/alibok/custom-nginx/tags
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
 
 
-## Решение 3
+##Решение 3
 ![1](https://github.com/alibok86/hwdocker/blob/main/img/5.jpg)
 ![1](https://github.com/alibok86/hwdocker/blob/main/img/6.jpg)
 
 
 Контейнер остановился, потому что Ctrl+C завершил его основной процесс (nginx).
-https://github.com/alibok86/hwdocker/blob/main/img/7.jpg
-https://github.com/alibok86/hwdocker/blob/main/img/8.jpg
-https://github.com/alibok86/hwdocker/blob/main/img/9.jpg
-https://github.com/alibok86/hwdocker/blob/main/img/10.jpg
+
+![1](https://github.com/alibok86/hwdocker/blob/main/img/7.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/8.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/9.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/10.jpg)
+Docker пробрасывает 8080:80, но Nginx слушает 81  запросы не доходят.
 
 ## Задача 4
 
@@ -107,6 +109,13 @@ https://github.com/alibok86/hwdocker/blob/main/img/10.jpg
 
 
 В качестве ответа приложите скриншоты консоли, где видно все введенные команды и их вывод.
+
+##РЕШЕНИЕ 4
+docker run -d -v $(pwd):/data --name centos-container centos:7 tail -f /dev/null
+docker run -d -v $(pwd):/data --name debian-container debian:11 tail -f /dev/null
+![1](https://github.com/alibok86/hwdocker/blob/main/img/11.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/12.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/13.jpg)
 
 
 ## Задача 5
@@ -163,3 +172,22 @@ services:
 Домашнее задание выполните в файле readme.md в GitHub-репозитории. В личном кабинете отправьте на проверку ссылку на .md-файл в вашем репозитории.
 
 
+##РЕШЕНИЕ 5
+
+Будет запущен файл compose.yaml, потому что:
+Docker Compose v2+ по умолчанию ищет файл с именем compose.yaml
+Если его нет, ищет docker-compose.yaml
+![1](https://github.com/alibok86/hwdocker/blob/main/img/14.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/15.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/16.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/17.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/18.jpg)
+![1](https://github.com/alibok86/hwdocker/blob/main/img/19.jpg)
+
+WARN[0000] /home/ubuntu/hw-docker/tmp/netology/docker/task5/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+WARN[0000] Found orphan containers ([task5-portainer-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up. 
+
+В современных версиях Docker Compose (начиная с Compose V2) атрибут version считается устаревшим и игнорируется. Просто удаляем строку                                      version: "3"
+Docker Compose обнаружил "осиротевшие" контейнеры (например, portainer), которые были созданы из предыдущего compose.yaml, но теперь отсутствуют в текущем файле (docker-compose.yaml).
+
+![1](https://github.com/alibok86/hwdocker/blob/main/img/20.jpg)
